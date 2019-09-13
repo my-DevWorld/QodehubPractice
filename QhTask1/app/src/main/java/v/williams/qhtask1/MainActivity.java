@@ -2,6 +2,7 @@ package v.williams.qhtask1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.PointF;
 import android.icu.text.DecimalFormat;
 import android.os.Bundle;
@@ -16,33 +17,17 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     public EditText usdAmount;
     public EditText localAmount;
 
     private LineView mlineView;
-    private RelativeLayout relativeLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         mlineView = findViewById(R.id.lineView);
-//        mlineView.setPointA(pointA);
-//        mlineView.setPointB(pointB);
-//        mlineView.setPointC(pointC);
-//        mlineView.setPointD(pointD);
-//        mlineView.setPointE(pointE);
-//        mlineView.draw();
-
-
-
-
 
         usdAmount = findViewById(R.id.usdAmount);
         localAmount = findViewById(R.id.localAmount);
@@ -127,4 +112,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+    public void next(View view) {
+        Intent nextPage = new Intent(this, BarGraph.class);
+        startActivity(nextPage);
+    }
 }

@@ -4,22 +4,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="350dp"
     tools:context=".MainActivity"
     android:layout_marginTop="35dp"
     android:layout_gravity="center_horizontal"
     android:paddingStart="15dp"
-    android:paddingEnd="15dp"
-    >
+    android:paddingEnd="15dp">
 
     <RelativeLayout
         android:id="@+id/buyOrder"
         android:layout_width="360dp"
         android:layout_height="200dp"
         android:background="@drawable/bckgrd1"
-        android:layout_centerHorizontal="true"
-        >
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,9 +27,7 @@
             android:layout_marginStart="40dp"
             android:background="@drawable/bckgrd"
             android:padding="1dp"
-            android:elevation="1dp"
-
-            >
+            android:elevation="1dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -54,16 +50,14 @@
             android:id="@+id/amount"
             android:layout_width="260dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="99.5dp"
                 android:hint="Amount you need"
                 android:background="@null"
-                android:paddingTop="15dp"
-                >
+                android:paddingTop="15dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/usdAmount"
@@ -72,24 +66,21 @@
                     android:layout_marginStart="5dp"
                     android:textSize="18sp"
                     android:inputType="numberDecimal"
-                    android:background="@null"
-                    />
+                    android:background="@null"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
-                android:layout_gravity="center"
-
-                />
+                android:layout_gravity="center"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:hint="Amount to pay"
-                android:paddingTop="18dp"
-                >
+                android:paddingTop="18dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/localAmount"
@@ -98,8 +89,8 @@
                     android:layout_marginStart="5dp"
                     android:textSize="18sp"
                     android:inputType="numberDecimal"
-                    android:background="@null"
-                    />
+                    android:background="@null"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -108,25 +99,19 @@
             android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@drawable/line"
-            android:layout_toRightOf="@+id/amount"
-            />
+            android:layout_toRightOf="@+id/amount"/>
 
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/amount"
             android:layout_marginStart="1dp"
-            android:layout_alignParentEnd="true"
-            >
+            android:layout_alignParentEnd="true">
 
             <v.williams.qhtask1.LineView
                 android:id="@+id/lineView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-
-                />
-
+                android:layout_height="match_parent"/>
 
             <RelativeLayout
                 android:id="@+id/usa"
@@ -135,16 +120,14 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                >
+                android:layout_marginRight="15dp">
 
                 <ImageView
                     android:id="@+id/usaFlag"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:src="@drawable/ic_united_states_flag"
-                    android:layout_marginTop="15dp"
-                    />
+                    android:layout_marginTop="15dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,19 +136,9 @@
                     android:layout_below="@+id/usaFlag"
                     android:layout_marginTop="5dp"
                     android:text="USD"
-                    android:textColor="#000"
-                    />
+                    android:textColor="#000"/>
 
             </RelativeLayout>
-
-<!--            <View-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="1dp"-->
-<!--                android:background="@android:color/darker_gray"-->
-<!--                android:layout_centerInParent="true"-->
-<!--            />-->
-
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -174,16 +147,13 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-
-                >
+                android:layout_marginRight="15dp">
 
                 <ImageView
                 android:id="@+id/localFlag"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_flag_of_ghana"
-                />
+                android:src="@drawable/ic_flag_of_ghana"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -192,8 +162,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:text="GHS"
-                    android:textColor="#000"
-                    />
+                    android:textColor="#000"/>
 
             </RelativeLayout>
 
@@ -219,5 +188,17 @@
 
 
 <!--    </RelativeLayout>-->
+
+    <Button
+        android:id="@+id/nextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:background="#42A5F5"
+        android:textColor="#ffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:onClick="next"/>
 
 </RelativeLayout>

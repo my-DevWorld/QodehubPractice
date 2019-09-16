@@ -170,25 +170,6 @@
 
     </RelativeLayout>
 
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/line"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_below="@+id/buyOrder"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:background="@drawable/bckgrd1">-->
-
-<!--        <v.williams.qhtask1.LineView-->
-<!--            android:id="@+id/lineView1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-
-
-<!--            />-->
-
-
-<!--    </RelativeLayout>-->
-
     <Button
         android:id="@+id/nextPage"
         android:layout_width="wrap_content"

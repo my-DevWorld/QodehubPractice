@@ -14,11 +14,15 @@ public class BarGraphView extends View {
     private Paint mBarPaint = new Paint();
     private Paint mGridPaint = new Paint();
     private Paint mGuideLinePaint = new Paint();
-//    private Paint paint = new Paint();
 
-    private float mPaddingTop = 50;
+    private float mPaddingTop = 100;
     private float mPaddingLeft = 15;
     private float mPaddingBottom = 15;
+    private float mColumnSpacing = 20;
+    private float spacing;
+
+    private float[] data = {9,78,30,100,50,45,80,95};
+    float[] dataInPercentage = new float[data.length];
 
 
     public BarGraphView(Context context) {
@@ -37,10 +41,17 @@ public class BarGraphView extends View {
     }
 
     private void inIt(){
+        spacing = 25;
+
+        for (int i = 0; i < data.length; i++){
+
+            dataInPercentage[i] = data[i] / 100;
+        }
 
         mBarPaint.setStyle(Paint.Style.FILL);
-        int barColor = Color.CYAN;
+        int barColor = Color.MAGENTA;
         mBarPaint.setColor(barColor);
+
 
         int gridThicknessInPx = 5;
         mGridPaint.setStrokeWidth(gridThicknessInPx);
@@ -53,37 +64,45 @@ public class BarGraphView extends View {
         mGuideLinePaint.setStyle(Paint.Style.STROKE);
         mGuideLinePaint.setColor(Color.RED);
 
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        inIt();
+
         final int width = getWidth();
         final int height = getHeight();
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println(width + " " + height);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
         final float gridLeft = mPaddingLeft;
         final float gridBottom = height - mPaddingBottom;
         final float gridTop = mPaddingTop;
         final float gridRight = width - mPaddingLeft;
+        final float gridHeight = gridBottom - gridTop;
 
         canvas.drawLine(gridLeft, gridBottom, gridLeft, gridTop, mGridPaint);
         canvas.drawLine(gridLeft, gridBottom, gridRight, gridBottom, mGridPaint);
 
         float guidLineSpacing = (gridBottom - gridTop) / 10f;
+
         float y;
         for (int i = 0; i < 10; i++){
-
             y = gridTop + i * guidLineSpacing;
             canvas.drawLine(gridLeft, y, gridRight, y, mGuideLinePaint);
+        }
 
-            System.out.println("///////////////////////////////////////////////////////////");
-            System.out.println(y);
-            System.out.println("///////////////////////////////////////////////////////////");
+        float totalColumnSpacing = spacing * (data.length);
+        float columnWidth = (gridRight - gridLeft - totalColumnSpacing) / data.length;
+        float columnLeft = gridLeft + spacing;
+        float columnRight = columnLeft + columnWidth;
+
+        for (float percentage : dataInPercentage){
+
+            float top =  ((1f - percentage) * gridHeight);
+            canvas.drawRect(columnLeft, top + mPaddingTop, columnRight, gridBottom, mBarPaint);
+
+            columnLeft = columnRight + mColumnSpacing;
+            columnRight = columnLeft + columnWidth;
 
         }
 

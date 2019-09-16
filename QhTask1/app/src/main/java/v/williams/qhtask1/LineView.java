@@ -4,14 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PointF;
-import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
+
 
 public class LineView extends View {
 
@@ -68,6 +66,7 @@ public class LineView extends View {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("" + pointA + pointB + pointC + pointD + pointE);
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
     }
 
     @Override
@@ -94,8 +93,6 @@ public class LineView extends View {
         canvas.drawLine(pointD.x, pointD.y,
                         pointE.x,pointE.y,
                         paint);
-
-//        canvas.drawPath(path,paint);
 
     }
 

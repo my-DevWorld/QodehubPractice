@@ -3,15 +3,12 @@ package v.williams.qhtask1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.PointF;
-import android.icu.text.DecimalFormat;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 
 import java.util.Locale;
 
@@ -114,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void next(View view) {
-        Intent nextPage = new Intent(this, BarGraph.class);
+        Intent nextPage = new Intent(this, Demos.class);
         startActivity(nextPage);
     }
 }

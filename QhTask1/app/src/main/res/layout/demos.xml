@@ -8,7 +8,7 @@
     tools:context=".Demos">
 
     <TextView
-        android:id="@+id/lable"
+        android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -23,17 +23,39 @@
         android:textStyle="bold"
         />
 
-    <Button
-        android:id="@+id/bargraph"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bar Graphs"
-        android:textAllCaps="false"
-        android:background="#42A5F5"
-        android:textColor="#ffff"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_below="@+id/lable"
-        />
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/label">
+
+        <Button
+            android:id="@+id/lines"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lines"
+            android:textAllCaps="false"
+            android:background="#42A5F5"
+            android:textColor="#ffff"
+            android:layout_marginRight="15dp"
+            />
+        <Button
+            android:id="@+id/bargraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bar Graphs"
+            android:textAllCaps="false"
+            android:background="#42A5F5"
+            android:textColor="#ffff"
+            android:layout_marginRight="15dp"
+
+            />
+
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

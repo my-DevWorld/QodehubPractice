@@ -10,14 +10,25 @@ import android.widget.Button;
 public class Demos extends AppCompatActivity implements View.OnClickListener {
 
     Button bargraph;
+    Button lines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demos);
 
+        setUp();
+
+    }
+
+    private void setUp(){
+
         bargraph = findViewById(R.id.bargraph);
         bargraph.setOnClickListener(this);
+
+        lines = findViewById(R.id.lines);
+        lines.setOnClickListener(this);
+
     }
 
     @Override
@@ -29,8 +40,13 @@ public class Demos extends AppCompatActivity implements View.OnClickListener {
 
            switch (actonText){
                case "Bar Graphs":
-                   Intent intent = new Intent(this, BarGraph.class);
-                   startActivity(intent);
+                   Intent barGraphs = new Intent(this, BarGraph.class);
+                   startActivity(barGraphs);
+                   break;
+
+               case "Lines":
+                   Intent lines = new Intent(this, Lines.class);
+                   startActivity(lines);
                    break;
 
            }

@@ -90,7 +90,6 @@
                     android:textSize="18sp"
                     android:inputType="numberDecimal"
                     android:background="@null"/>
-
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -180,6 +179,7 @@
         android:textColor="#ffff"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
-        android:onClick="next"/>
+        android:onClick="next"
+        />
 
 </RelativeLayout>

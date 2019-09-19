@@ -2,14 +2,10 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <v.williams.qhtask1.BarGraphView
-        android:id="@+id/bars"
+    <v.williams.qhtask1.DiffLinesViews
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 
 </RelativeLayout>

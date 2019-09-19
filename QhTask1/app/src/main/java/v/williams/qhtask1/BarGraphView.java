@@ -1,28 +1,38 @@
 package v.williams.qhtask1;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
 
 import androidx.annotation.Nullable;
 
-public class BarGraphView extends View {
+public class BarGraphView extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private Paint mBarPaint = new Paint();
     private Paint mGridPaint = new Paint();
     private Paint mGuideLinePaint = new Paint();
 
+    private ValueAnimator mAnimator;
+    private float mAnimatingFraction;
+
+
     private float mPaddingTop = 100;
     private float mPaddingLeft = 15;
     private float mPaddingBottom = 15;
     private float mColumnSpacing = 20;
+    float top;
     private float spacing;
 
     private float[] data = {9,78,30,100,50,45,80,95};
     float[] dataInPercentage = new float[data.length];
+
 
 
     public BarGraphView(Context context) {
@@ -48,6 +58,14 @@ public class BarGraphView extends View {
             dataInPercentage[i] = data[i] / 100;
         }
 
+        mAnimator = new ValueAnimator();
+        mAnimator.setDuration(50000);
+        mAnimator.setInterpolator(new AccelerateInterpolator());
+        mAnimator.addUpdateListener(this);
+
+        mAnimator.setFloatValues(0f, 1f);
+        mAnimator.start();
+
         mBarPaint.setStyle(Paint.Style.FILL);
         int barColor = Color.MAGENTA;
         mBarPaint.setColor(barColor);
@@ -63,6 +81,15 @@ public class BarGraphView extends View {
         mGuideLinePaint.setStrokeWidth(guidelineThicknessInPx);
         mGuideLinePaint.setStyle(Paint.Style.STROKE);
         mGuideLinePaint.setColor(Color.RED);
+
+    }
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+
+        mAnimatingFraction = animation.getAnimatedFraction();
+
+        invalidate();
 
     }
 
@@ -98,8 +125,9 @@ public class BarGraphView extends View {
 
         for (float percentage : dataInPercentage){
 
-            float top =  ((1f - percentage) * gridHeight);
-            canvas.drawRect(columnLeft, top + mPaddingTop, columnRight, gridBottom, mBarPaint);
+
+            top = mPaddingTop + gridHeight * (1f - (percentage * mAnimatingFraction));
+            canvas.drawRect(columnLeft, top, columnRight, gridBottom, mBarPaint);
 
             columnLeft = columnRight + mColumnSpacing;
             columnRight = columnLeft + columnWidth;
@@ -107,4 +135,5 @@ public class BarGraphView extends View {
         }
 
     }
+
 }

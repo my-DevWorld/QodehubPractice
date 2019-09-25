@@ -1,15 +1,17 @@
 package v.williams.qhtask1;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 
 import androidx.annotation.Nullable;
 
-public class DiffLinesViews extends View {
+public class DiffLinesViews extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private Paint vLinePaint;
     private Paint vLinePaint2;
@@ -25,6 +27,9 @@ public class DiffLinesViews extends View {
     private Paint dLinePaint2;
     private Paint dLinePaint3;
     private Paint dLinePaint4;
+
+    private ValueAnimator valueAnimator;
+    private float animatingFraction;
 
     public DiffLinesViews(Context context) {
         super(context);
@@ -42,6 +47,13 @@ public class DiffLinesViews extends View {
     }
 
     private void inIt(){
+
+        valueAnimator = new ValueAnimator();
+        valueAnimator.setDuration(500);
+        valueAnimator.setStartDelay(800);
+        valueAnimator.setInterpolator(new AccelerateInterpolator());
+        valueAnimator.addUpdateListener(this);
+        valueAnimator.setFloatValues(0f, 1f);
 
 
 /////////////////////////////////////////////////////////////////
@@ -135,18 +147,40 @@ public class DiffLinesViews extends View {
 ///////////////////////////////////////////////////////////////
 ///////////   Horizontal Lines    //////////////////////////////
 
-        canvas.drawLine(100, 100, 1300, 100, vLinePaint);
-        canvas.drawLine(100, 155, 1300, 155, vLinePaint2);
-        canvas.drawLine(100, 200, 1300, 200, vLinePaint3);
-        canvas.drawLine(100, 255, 1300, 255, vLinePaint4);
+        canvas.drawLine(100, 100,
+                        (1300 * animatingFraction) + 100, 100,
+                        vLinePaint);
+
+        canvas.drawLine(100, 155,
+                        (1300 * animatingFraction) + 100, 155,
+                        vLinePaint2);
+
+        canvas.drawLine(100, 200,
+                        (1300 * animatingFraction) + 100, 200,
+                        vLinePaint3);
+
+        canvas.drawLine(100, 255,
+                        (1300 * animatingFraction) + 100, 255,
+                        vLinePaint4);
 
 ///////////////////////////////////////////////////////////////
 ///////////   Vertical Lines    //////////////////////////////
 
-        canvas.drawLine(100, 300, 100, 1300, hLinePaint);
-        canvas.drawLine(155, 300, 155, 1300, hLinePaint2);
-        canvas.drawLine(200, 300, 200, 1300, hLinePaint3);
-        canvas.drawLine(255, 300, 255, 1300, hLinePaint4);
+        canvas.drawLine(100, 300, 100,
+                        (1300 * animatingFraction) + 300,
+                                hLinePaint);
+
+        canvas.drawLine(155, 300, 155,
+                        (1300 * animatingFraction) + 300,
+                        hLinePaint2);
+
+        canvas.drawLine(200, 300,
+                        200, (1300 * animatingFraction) + 300,
+                        hLinePaint3);
+
+        canvas.drawLine(255, 300,
+                        255, (1300 * animatingFraction) + 300,
+                        hLinePaint4);
 
 ///////////////////////////////////////////////////////////////
 ///////////   Diagonal Lines    //////////////////////////////
@@ -161,6 +195,9 @@ public class DiffLinesViews extends View {
         canvas.drawLine(950, 300, 700, 1100, dLinePaint3);
         canvas.drawLine(900, 300, 690, 1000, dLinePaint4);
 
+///////////////////////////////////////////////////////////////
+///////////   Zigzag Lines    //////////////////////////////
+
         canvas.drawLine(100, 2000, 250, 1800, dLinePaint);
         canvas.drawLine(250, 1800, 400, 2000, dLinePaint);
         canvas.drawLine(400, 2000, 550, 1800, dLinePaint);
@@ -171,15 +208,24 @@ public class DiffLinesViews extends View {
         canvas.drawLine(1150, 1800, 1300, 2000, dLinePaint);
 
 
+
         canvas.drawLine(100, 2100, 550, 2100, dLinePaint);
         canvas.drawLine(550, 2100, 700, 2250, dLinePaint);
         canvas.drawLine(700, 2250, 850, 2100, dLinePaint);
         canvas.drawLine(850, 2100, 1400, 2100, dLinePaint);
 
+    }
 
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
 
+        animatingFraction = animation.getAnimatedFraction();
 
+        invalidate();
+    }
 
+    public void startAnimation(){
 
+        valueAnimator.start();
     }
 }

@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/label">
 
@@ -39,7 +39,17 @@
             android:textAllCaps="false"
             android:background="#42A5F5"
             android:textColor="#ffff"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="12dp"
+            />
+        <Button
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Circle"
+            android:textAllCaps="false"
+            android:background="#42A5F5"
+            android:textColor="#ffff"
+            android:layout_marginRight="12dp"
             />
         <Button
             android:id="@+id/bargraph"
@@ -49,13 +59,28 @@
             android:textAllCaps="false"
             android:background="#42A5F5"
             android:textColor="#ffff"
-            android:layout_marginRight="15dp"
-
+            android:layout_marginRight="12dp"
             />
+        <Button
+            android:id="@+id/piechart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pie Chart"
+            android:textAllCaps="false"
+            android:background="#42A5F5"
+            android:textColor="#ffff"
+            />
+<!--        <Button-->
+<!--            android:id="@+id/valuemeter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Value Meter"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:background="#42A5F5"-->
+<!--            android:textColor="#ffff"-->
+<!--            />-->
 
 
 
     </LinearLayout>
-
-
 </RelativeLayout>

@@ -59,12 +59,12 @@ public class BarGraphView extends View implements ValueAnimator.AnimatorUpdateLi
         }
 
         mAnimator = new ValueAnimator();
-        mAnimator.setDuration(50000);
+        mAnimator.setDuration(500);
+        mAnimator.setStartDelay(800);
         mAnimator.setInterpolator(new AccelerateInterpolator());
         mAnimator.addUpdateListener(this);
 
         mAnimator.setFloatValues(0f, 1f);
-        mAnimator.start();
 
         mBarPaint.setStyle(Paint.Style.FILL);
         int barColor = Color.MAGENTA;
@@ -84,20 +84,12 @@ public class BarGraphView extends View implements ValueAnimator.AnimatorUpdateLi
 
     }
 
-    @Override
-    public void onAnimationUpdate(ValueAnimator animation) {
-
-        mAnimatingFraction = animation.getAnimatedFraction();
-
-        invalidate();
-
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        inIt();
+//        inIt();
 
         final int width = getWidth();
         final int height = getHeight();
@@ -133,6 +125,21 @@ public class BarGraphView extends View implements ValueAnimator.AnimatorUpdateLi
             columnRight = columnLeft + columnWidth;
 
         }
+
+    }
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+
+        mAnimatingFraction = animation.getAnimatedFraction();
+
+        invalidate();
+
+    }
+
+    public void playGraph(){
+
+        mAnimator.start();
 
     }
 

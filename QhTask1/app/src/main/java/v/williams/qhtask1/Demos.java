@@ -11,6 +11,8 @@ public class Demos extends AppCompatActivity implements View.OnClickListener {
 
     Button bargraph;
     Button lines;
+    Button pieChart;
+    Button valueMeter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,12 @@ public class Demos extends AppCompatActivity implements View.OnClickListener {
 
         lines = findViewById(R.id.lines);
         lines.setOnClickListener(this);
+
+        pieChart = findViewById(R.id.piechart);
+        pieChart.setOnClickListener(this);
+
+        valueMeter = findViewById(R.id.circle);
+        valueMeter.setOnClickListener(this);
 
     }
 
@@ -47,6 +55,16 @@ public class Demos extends AppCompatActivity implements View.OnClickListener {
                case "Lines":
                    Intent lines = new Intent(this, Lines.class);
                    startActivity(lines);
+                   break;
+
+               case "Pie Chart":
+                   Intent piechart = new Intent(this, PieChart.class);
+                   startActivity(piechart);
+                   break;
+
+               case "Circle":
+                   Intent valueMeter = new Intent(this, Circles.class);
+                   startActivity(valueMeter);
                    break;
 
            }

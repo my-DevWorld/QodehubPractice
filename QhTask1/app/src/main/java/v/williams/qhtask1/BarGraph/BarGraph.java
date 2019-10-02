@@ -1,9 +1,11 @@
-package v.williams.qhtask1;
+package v.williams.qhtask1.BarGraph;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import v.williams.qhtask1.R;
 
 public class BarGraph extends AppCompatActivity {
 

@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Circles"></activity>
-        <activity android:name=".ValueMeter" />
-        <activity android:name=".PieChart" />
+        <activity android:name=".Circles.Circles"></activity>
+        <activity android:name=".ValueMeter.ValueMeter" />
+        <activity android:name=".PieChart.PieChart" />
         <activity android:name=".Demos" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BarGraph" />
-        <activity android:name=".Lines" />
+        <activity android:name=".BarGraph.BarGraph" />
+        <activity android:name=".Lines.Lines" />
     </application>
 
 </manifest>

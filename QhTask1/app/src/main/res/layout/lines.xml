@@ -4,11 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <v.williams.qhtask1.DiffLinesViews
+    <v.williams.qhtask1.Lines.DiffLinesViews
         android:id="@+id/linesview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingRight="40dp"
         />
+
+<!--    <v.williams.qhtask1.MyView-->
+<!--        android:id="@+id/zigzag"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
 </RelativeLayout>

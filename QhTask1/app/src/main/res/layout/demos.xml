@@ -24,6 +24,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/row1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -70,17 +71,26 @@
             android:background="#42A5F5"
             android:textColor="#ffff"
             />
-<!--        <Button-->
-<!--            android:id="@+id/valuemeter"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Value Meter"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:background="#42A5F5"-->
-<!--            android:textColor="#ffff"-->
-<!--            />-->
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/row1">
+
+        <Button
+            android:id="@+id/valuemeter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Value Meter"
+            android:textAllCaps="false"
+            android:background="#42A5F5"
+            android:textColor="#ffff"
+            />
 
     </LinearLayout>
 </RelativeLayout>

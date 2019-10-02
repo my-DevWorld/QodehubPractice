@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ValueMeter">
+    tools:context=".ValueMeter.ValueMeter">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userAmountLabel"
+        android:layout_width="match_parent"
+        android:layout_height="99.5dp"
+        android:hint="Enter any number between 0 and 25000"
+        android:background="@null"
+        android:paddingTop="15dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userAmount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:textSize="18sp"
+            android:inputType="numberDecimal"
+            android:background="@null"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/showMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userAmountLabel"
+        android:text="Show Meter"
+        android:textAllCaps="false"
+        android:background="#42A5F5"
+        android:textColor="#ffff"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+    <v.williams.qhtask1.ValueMeter.VMView
+        android:id="@+id/meter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

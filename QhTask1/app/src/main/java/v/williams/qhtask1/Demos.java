@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import v.williams.qhtask1.BarGraph.BarGraph;
+import v.williams.qhtask1.Circles.Circles;
+import v.williams.qhtask1.Lines.Lines;
+import v.williams.qhtask1.PieChart.PieChart;
+import v.williams.qhtask1.ValueMeter.ValueMeter;
+
 public class Demos extends AppCompatActivity implements View.OnClickListener {
 
     Button bargraph;
     Button lines;
     Button pieChart;
     Button valueMeter;
+    Button circles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +41,10 @@ public class Demos extends AppCompatActivity implements View.OnClickListener {
         pieChart = findViewById(R.id.piechart);
         pieChart.setOnClickListener(this);
 
-        valueMeter = findViewById(R.id.circle);
+        circles = findViewById(R.id.circle);
+        circles.setOnClickListener(this);
+
+        valueMeter = findViewById(R.id.valuemeter);
         valueMeter.setOnClickListener(this);
 
     }
@@ -63,7 +73,12 @@ public class Demos extends AppCompatActivity implements View.OnClickListener {
                    break;
 
                case "Circle":
-                   Intent valueMeter = new Intent(this, Circles.class);
+                   Intent circle = new Intent(this, Circles.class);
+                   startActivity(circle);
+                   break;
+
+               case "Value Meter":
+                   Intent valueMeter = new Intent(this, ValueMeter.class);
                    startActivity(valueMeter);
                    break;
 

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <v.williams.qhtask1.BarGraphView
+    <v.williams.qhtask1.BarGraph.BarGraphView
         android:id="@+id/bars"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -1,6 +1,5 @@
-package v.williams.qhtask1;
+package v.williams.qhtask1.BarGraph;
 
-import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,7 +8,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
 
 import androidx.annotation.Nullable;
 
@@ -32,8 +30,6 @@ public class BarGraphView extends View implements ValueAnimator.AnimatorUpdateLi
 
     private float[] data = {9,78,30,100,50,45,80,95};
     float[] dataInPercentage = new float[data.length];
-
-
 
     public BarGraphView(Context context) {
         super(context);
@@ -123,9 +119,7 @@ public class BarGraphView extends View implements ValueAnimator.AnimatorUpdateLi
 
             columnLeft = columnRight + mColumnSpacing;
             columnRight = columnLeft + columnWidth;
-
         }
-
     }
 
     @Override
